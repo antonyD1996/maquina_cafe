@@ -11,18 +11,19 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Maquina de expresos</title>
+    <title>Espresso Machine</title>
   </head>
+
   <body>
     <div class="container">
       <div class="card text-center mt-5 bg-light">
         <div class="card-body">
-          <h3 class="card-title">Maquina de Expresos</h3>
+          <h3 class="card-title">Espresso Machine</h3>
 
           <div class="row">
             <div class="col">
               <div class="card text-center mt-2 bg-light">
-                <h5 class="card-title">Molino</h5>
+                <h5 class="card-title">Grinder</h5>
                 <div class="d-flex mb-4 justify-content-around">
                   <div class="col">
                     <button
@@ -30,8 +31,73 @@
                       type="button"
                       class="btn btn-dark"
                     >
-                      Cargar Cafe
+                      Load
                     </button>
+                  </div>
+                  <div class="col">
+                    <button
+                      id="btnMolerCafe"
+                      type="button"
+                      class="btn btn-dark"
+                    >
+                      Grind
+                    </button>
+                  </div>
+                </div>
+                <div class="d-flex">
+                  <div class="col">
+                    <div class="card text-center bg-light">
+                      <h6 class="card-title">Select Grinding Type</h6>
+                      <div class="col">
+                        <div class="col text-left ml-5">
+                          <div class="form-check">
+                            <input
+                              type="radio"
+                              class="form-check-input"
+                              id="tipo1"
+                              name="radioGroup"
+                              value="1"
+                            />
+                            <label
+                              class="form-check-label"
+                              for="materialGroupExample1"
+                              >Coarse</label
+                            >
+                          </div>
+
+                          <div class="form-check">
+                            <input
+                              type="radio"
+                              class="form-check-input"
+                              id="tipo2"
+                              name="radioGroup"
+                              checked
+                              value="2"
+                            />
+                            <label
+                              class="form-check-label"
+                              for="materialGroupExample2"
+                              >Medium</label
+                            >
+                          </div>
+
+                          <div class="form-check">
+                            <input
+                              type="radio"
+                              class="form-check-input"
+                              id="tipo3"
+                              name="radioGroup"
+                              value="3"
+                            />
+                            <label
+                              class="form-check-label"
+                              for="materialGroupExample3"
+                              >Fine
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <p id="parrafoCafe" class="mt-1 text-primary"></p>
@@ -39,16 +105,20 @@
             </div>
             <div class="col">
               <div class="card text-center mt-2 bg-light">
-                <h5 class="card-title">Tanque de agua</h5>
+                <h5 class="card-title">Water tank</h5>
                 <div class="d-flex mb-4 justify-content-around">
                   <div class="col">
                     <button
                       id="btnCargarAgua"
                       type="button"
-                      class="btn btn-dark"
+                      class="btn btn-dark mb-2"
                     >
-                      Cargar Agua
+                      Load
                     </button>
+                  </div>
+
+                  <div class="row">
+                    <p id="parrafoEstadoAgua" class="mt-1 text-primary"></p>
                   </div>
                 </div>
                 <p id="parrafoAgua" class="mt-1 text-primary"></p>
@@ -58,27 +128,95 @@
           <div class="row">
             <div class="col">
               <div class="card text-center mt-2 bg-light">
-                <h5 class="card-title">Panel de Control</h5>
-                <div class="d-flex mb-4 justify-content-around">
-                  <div class="col">
+                <h5 class="card-title">Control Panel</h5>
+
+                <div class="d-flex mb-4 align-items-center">
+                  <div class="col-sm">
+                    <button id="btnEncender" type="button" class="btn btn-dark">
+                      Turn on
+                    </button>
+                  </div>
+                  <div class="col-sm">
+                    <div class="card text-center mt-2 bg-light">
+                      <h6 class="card-title">Cups</h6>
+                      <div class="d-flex justify-content-around">
+                        <div class="col">
+                          <div class="form-check-inline">
+                            <label class="form-check-label">
+                              <input
+                                type="radio"
+                                class="form-check-input"
+                                name="optradio"
+                                checked
+                              />1
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <label class="form-check-label">
+                              <input
+                                type="radio"
+                                class="form-check-input"
+                                name="optradio"
+                              />2
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <p id="parrafoAgua" class="mt-1 text-primary"></p>
+                    </div>
+                  </div>
+
+                  <div class="col-sm">
                     <button
-                      id="btnEncender"
+                      id="btnPlaceFilter"
                       type="button"
                       class="btn btn-dark"
                     >
-                      Encender
+                      Place filter holder
                     </button>
                   </div>
-                  <div class="col">
-                    <button id="btnCafe" type="button" class="btn btn-dark">
-                      Moler Cafe
+                </div>
+                <div class="d-flex mb-4">
+                  <div class="col-sm">
+                    <button
+                      id="btnFlattenCoffee"
+                      type="button"
+                      class="btn btn-dark"
+                    >
+                      Flatten coffee
+                    </button>
+                  </div>
+                  <div class="col-sm">
+                    <button
+                      id="btnInsertFilter"
+                      type="button"
+                      class="btn btn-dark"
+                    >
+                      Insert filter holder
+                    </button>
+                  </div>
+                  <div class="col-sm">
+                    <button id="btnPrepare" type="button" class="btn btn-dark">
+                      Prepare Espresso
+                    </button>
+                  </div>
+                </div>
+                <div class="d-flex mb-4">
+                  <div class="col-sm">
+                    <button id="btnAddWater" type="button" class="btn btn-dark">
+                      Add Hot Water
+                    </button>
+                  </div>
+                  <div class="col-sm">
+                    <button id="btnDrink" type="button" class="btn btn-dark">
+                      Drink
                     </button>
                   </div>
                 </div>
                 <p id="parrafoTiempo" class="mt-1 text-primary"></p>
               </div>
-              
             </div>
+          </div>
         </div>
       </div>
     </div>
